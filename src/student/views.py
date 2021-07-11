@@ -21,6 +21,9 @@ def student_page(request):
 
             print('student saved successfully')
             print(student_name, student_surname, student_number)
+            student = Student(first_name=student_name,
+                              last_name=student_surname, number=student_number)
+            student.save()
             return redirect('index') # bilgileri geri göndermek için(form valid değilse)
         context = {
             'form': form
